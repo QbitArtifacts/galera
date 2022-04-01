@@ -14,6 +14,9 @@ services:
           - node.labels.${STACK_NAME}.galera == ${ENV}
       replicas: 1
 
+  node:
+    image: debian
+    command: sleep 600
 #  node:
 #    image: reg.rallf.com:8443/galera-node
 #    command: start
