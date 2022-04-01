@@ -3,11 +3,13 @@ version: "3"
 services:
   controller:
     image: reg.rallf.com:8443/galera-controller
+    environment:
+      - STACK_NAME=${STACK_NAME}
     deploy:
       placement:
         constraints:
           - node.role == manager
-          - node.labels.{{.Stack.Name}}.galera == ${ENV}
+          - node.labels.${STACK_NAME}.galera == ${ENV}
       replicas: 1
 
 #  node:
