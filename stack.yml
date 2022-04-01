@@ -1,0 +1,22 @@
+
+
+services:
+  controller:
+    image: reg.rallf.com:8443/galera-controller
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+          - node.labels.{{.Stack.Name}}.galera == ${ENV}
+      replicas: 1
+
+#  node:
+#    image: reg.rallf.com:8443/galera-node
+#    command: start
+#    hostname: galera-{{.Node.Hostname}}
+#    deploy:
+#      mode: global
+#      placement:
+#        constraints:
+#          - node.labels.logic.galera == stage
+
