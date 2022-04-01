@@ -17,7 +17,7 @@ services:
   node:
     image: reg.rallf.com:8443/galera-node
     command: start
-    hostname: {{.Node.Hostname}}
+    hostname: galera-{{.Node.Hostname}}
     environment:
       - STACK_NAME=${STACK_NAME}
     deploy:

@@ -6,6 +6,8 @@ RUN apt update && apt install -y \
   galera-4 \
   netcat
 
+RUN apt clean
+
 COPY my.cnf /etc/mysql/my.cnf
 
 RUN mkdir /run/mysqld
