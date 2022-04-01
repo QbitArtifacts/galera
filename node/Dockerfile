@@ -9,6 +9,9 @@ RUN apt update && apt install -y \
 RUN apt clean
 
 COPY my.cnf /etc/mysql/my.cnf
+COPY docker-entrypoint.sh /galera-node/
+
+WORKDIR /galera-node
 
 RUN mkdir /run/mysqld
 ENTRYPOINT ["docker-entrypoint.sh"]
