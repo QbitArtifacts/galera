@@ -5,6 +5,8 @@ services:
     image: reg.rallf.com:8443/galera-controller
     environment:
       - STACK_NAME=${STACK_NAME}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     deploy:
       placement:
         constraints:
