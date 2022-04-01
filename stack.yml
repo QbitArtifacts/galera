@@ -15,16 +15,14 @@ services:
       replicas: 1
 
   node:
-    image: debian
-    hostname: ${PROJECT_NAME}_{{.Node.Hostname}}
-    command: sleep 600
-#  node:
-#    image: reg.rallf.com:8443/galera-node
-#    command: start
-#    hostname: galera-{{.Node.Hostname}}
-#    deploy:
-#      mode: global
-#      placement:
-#        constraints:
-#          - node.labels.logic.galera == stage
+    image: reg.rallf.com:8443/galera-node
+    command: start
+    hostname: {{.Node.Hostname}}
+    environment:
+      - STACK_NAME=${STACK_NAME}
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.labels.${STACK_NAME}.galera == stage
 
