@@ -16,6 +16,7 @@ services:
 
   node:
     image: debian
+    hostname: ${PROJECT_NAME}_{{.Node.Hostname}}
     command: sleep 600
 #  node:
 #    image: reg.rallf.com:8443/galera-node
