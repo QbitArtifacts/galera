@@ -14,4 +14,4 @@ COPY docker-entrypoint.sh /galera-node/
 WORKDIR /galera-node
 
 RUN mkdir /run/mysqld
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
